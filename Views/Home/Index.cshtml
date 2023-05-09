@@ -1,0 +1,45 @@
+﻿@model Student
+
+@{
+    ViewData["Title"] = "Survey Home Page";
+}
+<div class="MainDiv">
+
+    <h3>Please fill out the form below: </h3>
+
+    <form asp-controller="Home" asp-action="CreateStudent" method="POST">
+        <div class="Fillout">
+            <label asp-for="Name">Your Name: </label>
+            <span asp-validation-for="Name"></span>
+            <input asp-for="Name">
+        </div>
+
+        <div class="Fillout">
+            <label asp-for="Location">Dojo Location: </label>
+            <select asp-for="Location">
+                <option asp-item="online">Online</option>
+                <option value="sanjose">San Jose</option>
+                <option value="burbank">Burbank</option>
+            </select>
+        </div>
+
+        <div class="Fillout">
+            <label asp-for="Language">Favorite Language: </label>
+            <select asp-for="Language">
+                <option value="c#">C#</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+            </select>
+        </div>
+
+        <div class="Fillout">
+            <label asp-for="Comment">Comment (optional): </label>
+            <span asp-validation-for="Comment"></span>
+            <br>
+            <textarea asp-for="Comment" cols="40" rows="5"></textarea>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+</div>
